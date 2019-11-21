@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+      <!-- Import external resources below -->
+      <head>
+            <meta charset="utf-8" />
+        
+            <title>Siip</title>
+
+            <!-- React Libraries -->
+            <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+            <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+            <!-- JQuery Ajax -->
+            <script
+               src="https://code.jquery.com/jquery-3.4.1.min.js"
+               integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+               crossorigin="anonymous">
+            </script>
+
+            <!-- css style sheet -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
+
+            <!-- Font Work sans-->
+            <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+      </head>
+
+
+   <body>
+
+      <!--
+      <form  method = "POST">
+         <h3>User Information</h3>
+         Name<br>
+         <input type = "text" name = "nm" /></br>
+         
+         Phone<br>
+         <input type = "text" name="phone"/><br>
+         
+         Card<br>
+         <input type = "text" name = "card" /><br>
+
+         Car<br>
+         <input type = "text" name = "car" /><br>
+         
+         <input type = "submit" value = "submit" /><br>
+      </form>
+   -->
+
+      <div id="base-container">
+         <!-- Title Area-->
+         <div id="title">
+            <section>
+                  <p class="title-text slide-up">
+                        S<!--This comment is required to remove whitespace created by inline-block elements.
+                     --><span>
+                        <span class="i-stack">.</span>
+                        <span class="i-stack">ı</span>
+                     </span><!--This comment is required to remove whitespace created by inline-block elements.
+                  <!--This comment is required to remove whitespace created by inline-block elements.--><span>
+                           <span class="i-stack rainbow-cycle">.</span>
+                           <span class="i-stack">ı</span>
+                        </span><!--This comment is required to remove whitespace created by inline-block elements.
+                     -->p
+                  </p>
+               </section>
+         </div>
+         <!-- Title Area-->
+
+         {% block content %}{% endblock %}
+      </div>
+
+   </body>
+</html>
