@@ -1,6 +1,11 @@
+<!-- route = / -->
+<!-- main area for navigating to the registration or existing user pages -->
 {% extends 'base.html' %}
 
+<!-- This populates the block in base.html -->
 {% block content %}
+
+<!-- Some JS to control showing the scan prompt -->
 <script type=text/javascript>
   $(function() {
     $('#scanButton').click(function() {
@@ -16,64 +21,35 @@
     });
   });
 </script>
-    <div id="actions">
-      <!-- <button type="button" onclick="window.location.href='{{ url_for}}'">Register</button> -->
-      <div onclick="window.location.href='{{ url_for('register') }}';">
-          <svg version="1.1" id="addIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 42 42" style="enable-background:new 0 0 42 42;" xml:space="preserve">
-          <path d="M37.059,16H26V4.941C26,2.224,23.718,0,21,0s-5,2.224-5,4.941V16H4.941C2.224,16,0,18.282,0,21s2.224,5,4.941,5H16v11.059
-          C16,39.776,18.282,42,21,42s5-2.224,5-4.941V26h11.059C39.776,26,42,23.718,42,21S39.776,16,37.059,16z"/>
 
-       </svg>
-
-        <button type="button" id="registerButton">New User</button>
-      </div>
-      
-      <div id="scanButton">
-          <div id="barcodeIcon">
-              <div></div>
-              <div></div>
-              <div></div>
-          </div>
-          <button type="button">Scan</button>
-      </div>
-        
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
     
-    </div>
+<div id="actions">
+  <!-- New User Side -->
+  <div onclick="window.location.href='{{ url_for('register') }}';">
+      <svg version="1.1" id="addIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 42 42" style="enable-background:new 0 0 42 42;" xml:space="preserve">
+      <path d="M37.059,16H26V4.941C26,2.224,23.718,0,21,0s-5,2.224-5,4.941V16H4.941C2.224,16,0,18.282,0,21s2.224,5,4.941,5H16v11.059
+      C16,39.776,18.282,42,21,42s5-2.224,5-4.941V26h11.059C39.776,26,42,23.718,42,21S39.776,16,37.059,16z"/>
+      </svg>
 
-    <div id="scanPrompt" style="display: none;">
-        <h1>Scan Card...</h1>
-    </div>
-    <!---
-    <script>
-      class Actions extends React.Component {
-         constructor(props) {
-            super(props);
-            this.state = {
-               user: {}
-            };
-         }
+      <button type="button" id="registerButton">New User</button>
+  </div>
+  
+  <!-- Scan Side -->
+  <div id="scanButton">
+      <div id="barcodeIcon">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+      <button type="button">Scan</button>
+  </div>
+</div>
 
-         newUser(){
-          window.location.href='{{ url_for('register') }}';
-         }
+<!-- Scan Prompt - intially hidden until you click the scan area -->
+<div id="scanPrompt" style="display: none;">
+    <h1>Scan Card...</h1>
+</div>
 
-         
-
-         render(){
-            return (
-              <div>
-                <button onClick={() => this.newUser()}>New User</button> 
-                <button onClick={() => this.scan()}>Scan</button> 
-              </div>
-            );
-         }
-      }
-
-      ReactDOM.render(
-         '<Actions />',
-         document.getElementById('actions')
-      )
-   </script>
-  -->
 {% endblock %}

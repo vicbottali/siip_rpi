@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <form  method = "POST">
+      <form action="{{ url_for('register')}}" method = "POST">
          <h3>User Information</h3>
          Name<br>
          <input type = "text" name = "nm" /></br>
@@ -11,9 +11,6 @@
          
          Card<br>
          <input type = "text" name = "card" /><br>
-
-         Car<br>
-         <input type = "text" name = "car" /><br>
          
          <input type = "submit" value = "submit" /><br>
       </form>

@@ -1,5 +1,7 @@
+<!-- All the other Templates will inherit from this file -->
+<!-- This means the top "Siip" part will always be in place  -->
+<!-- The other templates will populate the block area-->
 <!DOCTYPE html>
-
 <html>
       <!-- Import external resources below -->
       <head>
@@ -19,7 +21,7 @@
             </script>
 
             <!-- css style sheet -->
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}" />
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}" />
 
             <!-- Font Work sans-->
             <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
@@ -27,26 +29,6 @@
 
 
    <body>
-
-      <!--
-      <form  method = "POST">
-         <h3>User Information</h3>
-         Name<br>
-         <input type = "text" name = "nm" /></br>
-         
-         Phone<br>
-         <input type = "text" name="phone"/><br>
-         
-         Card<br>
-         <input type = "text" name = "card" /><br>
-
-         Car<br>
-         <input type = "text" name = "car" /><br>
-         
-         <input type = "submit" value = "submit" /><br>
-      </form>
-   -->
-
       <div id="base-container">
          <!-- Title Area-->
          <div id="title">
