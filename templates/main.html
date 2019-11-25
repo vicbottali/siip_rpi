@@ -7,6 +7,25 @@
 
 <!-- Some JS to control showing the scan prompt -->
 <script type=text/javascript>
+  window.onload=function(){
+    var btn = document.getElementById('scanButton');
+    var hm = new Hammer(btn);
+    
+    hm.on("tap", function(ev){
+      console.log(ev)
+      console.log('clicked');
+        $('#actions').hide();
+        $('#scanPrompt').show();
+
+        $.ajax({
+          url: '/Scan',
+          dataType: 'json',
+          success: function(data){console.log(data)}
+        })
+      });
+    }
+  
+  
   $(function() {
     $('#scanButton').click(function() {
       console.log('clicked');
