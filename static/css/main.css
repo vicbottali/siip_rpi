@@ -3,7 +3,8 @@
 #actions {
     flex: 1; /* Controls size in #base-container*/
 
-    display: flex;
+	display: flex;
+	font-family: 'Open Sans', sans-serif;
 }
 
 #actions > :nth-child(n){
