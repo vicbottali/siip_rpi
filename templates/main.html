@@ -7,6 +7,7 @@
 
 <!-- Some JS to control showing the scan prompt -->
 <script type=text/javascript>
+  // Hammer JS
   window.onload=function(){
     var btn = document.getElementById('scanButton');
     var hm = new Hammer(btn);
@@ -25,7 +26,7 @@
       });
     }
   
-  
+  // JQuery
   $(function() {
     $('#scanButton').click(function() {
       console.log('clicked');
