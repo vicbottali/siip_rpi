@@ -1,10 +1,5 @@
-from flask import Flask
-from flask import render_template, request, url_for, redirect, jsonify, json
-#from flask.ext.scss import Scss
-import sqlite3
-
-app = Flask(__name__)
-#Scss(app)
+from flask import Flask, render_template, request, url_for, redirect, jsonify, json
+from app import app
 
 # Main Page
 @app.route('/')
