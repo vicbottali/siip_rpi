@@ -18,6 +18,32 @@ Flask application to be run on a Raspberry Pi.
     pip install Flask
     ```
 
+### Database Management
+* Using a SQLite db locally
+* Now you can use flask-sqlalchemy and flask-migrate to manage and interact with the db
+
+## Flask-Migrate - Making Changes to the Database Structure/Schema
+For initial setup:
+    ```bash 
+    flask db init
+    ```
+The above command would create the inital Migrations directory. Since the directory is in source control, you won't need to run it for this. But note that when you create migrations in the future, they need to be added to source control.
+
+* Models are defined in app/models.py
+* After making changes to models.py, you'll need to migrate the database to keep it in sync
+    1.  To make a new migration file run:
+        ```bash
+        flask db migrate -m "optional description"
+        ```
+        * Note that this doesn't change the db, just generates a file in the migrations directory*
+        * Make sure to add the file to source control *
+    
+    2. To apply the changes from the file generated above:
+        ```bash
+        flask db upgrade
+        ```
+
+
 ### Running locally
 
 * Export application environment variable - where app.py is the file name of the application
@@ -35,9 +61,7 @@ Flask application to be run on a Raspberry Pi.
     python3 -m flask run
     ```
 
-
 #### Other Resources
-===
 
 * Sqlite3 - Used for the database
     - Helpful tutorial for basic CRUD operations [https://stackabuse.com/a-sqlite-tutorial-with-python/]
