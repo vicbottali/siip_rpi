@@ -18,11 +18,22 @@ Flask application to be run on a Raspberry Pi.
     pip install Flask
     ```
 
-### Database Management
+## Making sure dependencies are up to date
+Run to install dependencies
+```bash 
+pip install -r requirements.txt
+```
+
+* Update requirements.txt if you add anything new (pip install)
+    - ```bash
+      pip freeze > requirements.txt
+      ```
+
+## Database Management
 * Using a SQLite db locally
 * Now you can use flask-sqlalchemy and flask-migrate to manage and interact with the db
 
-## Flask-Migrate - Making Changes to the Database Structure/Schema
+### Flask-Migrate - Making Changes to the Database Structure/Schema
 For initial setup:
     ```bash 
     flask db init
