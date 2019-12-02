@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify, json
+import RPi.GPIO as GPIO
+from mfrc522 import SimpleMFRC522
 from app import app
 
 # Main Page
@@ -44,7 +46,13 @@ def scan():
       # Get userId - SQLLite
       # return userInfo as JSON
       # redirect_to user/<userId> -- In front end
-      return jsonify(results = {"dataKey": "value"})
+   reader = SimpleMFRC522()
+
+   try:
+      id, text = reader.read()
+      return jsonify(results = {"rfid": id})
+   finally:
+      GPIO.cleanup()
 
 # User Page
 # For getting an existing user

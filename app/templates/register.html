@@ -1,18 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-      <form id="registrationForm" action="{{ url_for('register')}}" method = "POST">
-         <h3>User Information</h3>
-         Name<br>
-         <input type = "text" name = "nm" /></br>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}" />
+   <div id="registrationArea">
+      <form class="registration-form" action="{{ url_for('register')}}" method = "POST">
+         <h3>Tell Us About Yourself...</h3>
          
-         Phone<br>
-         <input type = "text" name="phone"/><br>
          
-         Card<br>
-         <input type = "text" name = "card" /><br>
+         <div>
+            <label for="name">Name</label>
+            <input type = "text" name = "name" />
+         </div>
          
-         <input type = "submit" value = "submit" /><br>
+         <div>
+            <label for="phone">Phone</label>
+            <input type = "text" name="phone"/>
+         </div>
+         
+         <div>
+            <input type = "submit" value = "Confirm" />
+         </div>
+         
       </form>
+   </div>
 {% endblock %}
