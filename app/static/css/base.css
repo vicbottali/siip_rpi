@@ -51,11 +51,15 @@ body {
     width: calc(var(--size) * 1px);
     
     /* animation stuff */
+    
     animation-name: float;
     animation-duration: calc(var(--speed) * 1s);
     animation-delay: calc(var(--delay) * -1s);
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
+    
+    /* The line below adds a color change animation to match the 'i', but it's pretty resource intensive */
+    /*animation: float calc(var(--speed) * 1s) ease-in-out calc(var(--delay) * -1s) infinite, rainbow-cycle-hue 18s infinite cubic-bezier(0.2, 0.2, 0.79, 0.79);*/
 }
 
 .title-text {
@@ -94,8 +98,26 @@ span{
 }
 
 .rainbow-cycle {
-    color    : #ff8a00;
+     --hue: 195;
     animation: rainbow-cycle 18s infinite cubic-bezier(0.2, 0.2, 0.79, 0.79);
+}
+
+@keyframes rainbow-cycle-hue {
+    0%{ --hue: 10;}
+    10% { --hue: 25;}
+    30%{ --hue: 42;}
+    40% { --hue: 102;}
+    55%{ --hue: 175;}
+    65%{ --hue: 194;}
+    75% { --hue: 244;}
+    85%{ --hue: 300;}
+    95% { --hue: 320;}
+    100%{ --hue: 340;}
+}
+
+.rainbow-hue {
+    --hue: 195;
+    animation: rainbow-cycle-hue 18s infinite cubic-bezier(0.2, 0.2, 0.79, 0.79);
 }
 
 

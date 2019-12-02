@@ -65,19 +65,21 @@
   $(function() {
       
       var bubbles = [];
-      for(let i = 0; i <= 50; i++){
+      for(let i = 0; i < 55; i++){
             let size = Math.floor(Math.random() * 50) + 1;  
             let xPos = Math.floor(Math.random() * 100) + 1; 
             let delay = Math.floor(Math.random() * 10) + 1; 
             let speed = Math.floor(Math.random() * 19) + 2; 
-            let distance = Math.floor(Math.random() * 50) + 1; 
+            let distance = Math.floor(Math.random() * 45) + 1; 
             let scale = (Math.floor(Math.random() * 51) + 100) / 100; 
+            let hue = Math.floor(Math.random() * 110) + 185; 
             
             bubbles.push(
             `<div class="bubble" 
                   style="--left :${xPos}%; --size: ${size};
                         --distance: ${distance}; --speed: ${speed};
-                        --delay: ${delay}; --scale: ${scale};">
+                        --delay: ${delay}; --scale: ${scale}; 
+                        --hue: ${hue};">
             </div>`);
       }
       console.log(bubbles);
