@@ -11,6 +11,7 @@ body {
     background-color: rgb(11, 27, 39);
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 #title {
@@ -22,6 +23,39 @@ body {
     text-align: center;
     font-weight: 900;
     letter-spacing: 1px;
+}
+
+#bubbleArea {
+    flex: 0.2;
+    position: relative;
+}
+
+.bubble {
+    --size: 50;
+    --hue: 195;
+    --bubble-outline: hsl(var(--hue), 100%, 50%);
+    --bubble-spot: hsl(var(--hue), 100%, 75%);
+    --bubble-shade: hsl(var(--hue), 100%, 70%);
+    --top: 100%;
+    --left: 5%;
+
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    background: radial-gradient(100% 115% at 25% 25%, #fff, transparent 33%),
+    radial-gradient(15% 15% at 75% 75%, var(--bubble-spot), transparent),
+    radial-gradient(100% 100% at 50% 25%, transparent, var(--bubble-shade) 98%);
+    border: 1px solid var(--bubble-outline);
+    border-radius: 100%;
+    height: calc(var(--size) * 1px);
+    width: calc(var(--size) * 1px);
+    
+    /* animation stuff */
+    animation-name: float;
+    animation-duration: calc(var(--speed) * 1s);
+    animation-delay: calc(var(--delay) * -1s);
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 .title-text {
@@ -95,6 +129,17 @@ span{
             animation: slide-up 0.6s cubic-bezier(0.17, -0.25, 0.32, 1.25) both;
 }
 
+/* Bubble Floating Animation */
+@keyframes float {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, calc(var(--distance) * -1vh)) scale(var(--scale));
+  }
+}
 
 /*  Bouncing Animation */
 
