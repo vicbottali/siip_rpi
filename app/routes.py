@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect, jsonify, json
 import RPi.GPIO as GPIO
 from mfrc522 import SimpleMFRC522
-from app import app
+from app import app, db
+from app.models import User
 
 # Main Page
 @app.route('/')
@@ -18,25 +19,12 @@ def register():
 # Inserts the user into the database
 @app.route('/AddUser', methods = ['POST'])
 def addUser():
-   print("test")
    if request.method == 'POST':
-      try:
-         nm = request.form['nm']
-         phone = request.form['phone']
-         card = request.form['card']
-         
-         with sqlite3.connect("Siip.db") as con:
-            cur = con.cursor()
-            cur.execute("INSERT INTO users(name,phone,creditCard) VALUES (?,?,?)", (nm, phone, card))
-            
-            con.commit()
-      except:
-         con.rollback()
-         msg = "error in insert operation"
-         return "failed"
-      finally:
-         con.close()
-         return "success 2"
+      user = User(name=request.form['name'], phone=request.form['phone'])
+      db.session.add(user)
+      db.session.commit()
+      userId = user.id
+      return redirect(url_for('index'))
 
 # Scanner call - jQuery Ajax call 
 # Click 'Scan' - Right Side
